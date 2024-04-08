@@ -1,0 +1,27 @@
+{
+  "userAutor": {
+    "Валерия": {
+      "email": "vlapin84@gmail.com",
+      "password": "542073"
+    },
+       
+    "user1": {
+      "name": "ivan",
+      "email": "ivan@example.com",
+      "password": "password1"
+    },
+    "user2": {
+      "name": "sofia",
+      "email": "sofia@example.com",
+      "password": "password2"
+    },
+    "user3": {
+      "name": "thay",
+      "email": "thaya@example.com",
+      "password": "password3"
+    }
+  }
+}
+
+
+

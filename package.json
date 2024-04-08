@@ -1,0 +1,38 @@
+{
+  "name": "hw_9.1.1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "cy:run:staging": "npx cypress run --config-file cypress-staging.config.js",
+    "cy:run:main": "npx cypress run --config-file cypress-main.config.js",
+    "cy:run:main:chrome": "npx cypress run --config-file cypress-main.config.js --browser chrome",
+    "cy:run:main:electron": "npx cypress run --config-file cypress-main.config.js --browser electron",
+    "cy:run:main:chromeANDelectron": "npm run cy:run:main:electron && cy:run:main:chrome",
+    "cy:run:dashboard:main": "npx cypress run --config-file cypress-main.config.js --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4",
+    "cy:run:dashboard:staging": "npx cypress run --config-file cypress-staging.config.js --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4",
+    "start": "node server.js",
+    "test:test1:chrome": "cypress run --config-file cypress/configs/test1_chrome.js --browser chrome",
+    "test:test2:electron": "cypress run --config-file cypress/configs/test2_electron.js --browser electron",
+    "cy:nokey:parallel": "npm run cy:run:chrome -- --browser chrome & npm run cy:run:electron -- --browser electron",
+    "cy:parallel": "concurrently \"npm run cy:run:main:chrome -- --browser chrome --group chrome --ci-build-id fs2ut8\" \"npm run cy:run:main:electron -- --browser electron --group electron --ci-build-id fs2ut8\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "concurrently": "^8.2.2",
+    "cypress": "^13.7.2",
+    "cypress-multi-reporters": "^1.6.4"
+  },
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "junit,json",
+    "junitReporter": {
+      "outputPath": "results/junit.xml"
+    }
+  }
+}
