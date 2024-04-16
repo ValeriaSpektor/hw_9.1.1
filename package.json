@@ -14,10 +14,17 @@
     "cy:run:dashboard:main": "npx cypress run --config-file cypress-main.config.js --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4",
     "cy:run:dashboard:staging": "npx cypress run --config-file cypress-staging.config.js --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4",
     "start": "node server.js",
-    "test:test1:chrome": "cypress run --config-file cypress/configs/test1_chrome.js --browser chrome",
-    "test:test2:electron": "cypress run --config-file cypress/configs/test2_electron.js --browser electron",
+    "test:laptop:chrome": "cypress run --config-file cypress-laptop.config.js --browser chrome",
+    "test:monitor:electron": "cypress run --config-file cypress-monitor.config.js --browser electron",
     "cy:nokey:parallel": "npm run cy:run:chrome -- --browser chrome & npm run cy:run:electron -- --browser electron",
-    "cy:parallel": "concurrently \"npm run cy:run:main:chrome -- --browser chrome --group chrome --ci-build-id fs2ut8\" \"npm run cy:run:main:electron -- --browser electron --group electron --ci-build-id fs2ut8\""
+    "cy:parallel": "concurrently \"npm run cy:run:main:chrome -- --browser chrome --group chrome --ci-build-id fs2ut8\" \"npm run cy:run:main:electron -- --browser electron --group electron --ci-build-id fs2ut8\"",
+    "cy:run:parallel:laptopmonitor": "npm run cy:run:laptop && npm run cy:run:monitor",
+    "cy:run:laptop": "cypress run --config-file cypress-laptop.config.js",
+    "cy:run:monitor": "cypress run --config-file cypress-monitor.config.js",
+    "cy:run:parallel:laptopmonitor:record": "npm run cy:run:parallel:laptopmonitor -- --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4",
+    "cy:run:laptop:chrome": "cypress run --config-file cypress-laptop.config.js --browser chrome",
+    "cy:run:monitor:electron": "cypress run --config-file cypress-monitor.config.js --browser electron",
+    "cy:run:parallel:laptopmonitor": "concurrently \"npm run cy:run:laptop\" \"npm run cy:run:monitor\""
   },
   "keywords": [],
   "author": "",
@@ -25,7 +32,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "concurrently": "^8.2.2",
-    "cypress": "^13.7.2",
+    "cypress": "^13.7.3",
     "cypress-multi-reporters": "^1.6.4"
   },
   "reporter": "cypress-multi-reporters",
