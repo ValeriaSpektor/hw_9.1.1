@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="7.347" tests="2" failures="0">
-  <testsuite name="Root Suite" timestamp="2024-04-16T13:07:14" tests="0" file="cypress\monitor\test_electron.js" time="0.000" failures="0">
+<testsuites name="Mocha Tests" time="25.354" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-04-16T15:28:36" tests="0" file="cypress\monitor\test_electron.js" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="Verifier Website - Тест загрузки страницы" timestamp="2024-04-16T13:07:14" tests="2" time="7.332" failures="0">
-    <testcase name="Verifier Website - Тест загрузки страницы Открыта страница сайта sqlverifier-live" time="2.912" classname="Открыта страница сайта sqlverifier-live">
+  <testsuite name="Verifier Website - Тест загрузки страницы" timestamp="2024-04-16T15:28:36" tests="2" time="25.342" failures="0">
+    <testcase name="Verifier Website - Тест загрузки страницы Открыта страница сайта sqlverifier-live" time="22.038" classname="Открыта страница сайта sqlverifier-live">
     </testcase>
-    <testcase name="Verifier Website - Тест загрузки страницы Авторизован под зарегистрированным пользователем" time="3.299" classname="Авторизован под зарегистрированным пользователем">
+    <testcase name="Verifier Website - Тест загрузки страницы Авторизован под зарегистрированным пользователем" time="2.877" classname="Авторизован под зарегистрированным пользователем">
     </testcase>
   </testsuite>
 </testsuites>
