@@ -18,13 +18,13 @@
     "test:monitor:electron": "cypress run --config-file cypress-monitor.config.js --browser electron --reporter junit --reporter-options \"mochaFile=results/junit-monitor.xml\"",
     "cy:nokey:parallel": "npm run cy:run:chrome -- --browser chrome & npm run cy:run:electron -- --browser electron",
     "cy:parallel": "concurrently \"npm run cy:run:main:chrome -- --browser chrome --group chrome --ci-build-id fs2ut8\" \"npm run cy:run:main:electron -- --browser electron --group electron --ci-build-id fs2ut8\"",
-    "cy:run:parallel:laptopmonitor": "npm run cy:run:laptop && npm run cy:run:monitor",
+    "cy:run:parallel:laptopmonitor": "concurrently \"npm run cy:run:laptop\" \"npm run cy:run:monitor\"",
     "cy:run:laptop": "cypress run --config-file cypress-laptop.config.js --reporter junit --reporter-options \"mochaFile=results/junit-laptop.xml\"",
     "cy:run:monitor": "cypress run --config-file cypress-monitor.config.js --reporter junit --reporter-options \"mochaFile=results/junit-monitor.xml\"",
     "cy:run:parallel:laptopmonitor:record": "npm run cy:run:parallel:laptopmonitor -- --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4",
     "cy:run:laptop:chrome": "cypress run --config-file cypress-laptop.config.js --browser chrome --reporter junit --reporter-options \"mochaFile=results/junit-laptop.xml\"",
     "cy:run:monitor:electron": "cypress run --config-file cypress-monitor.config.js --browser electron --reporter junit --reporter-options \"mochaFile=results/junit-monitor.xml\"",
-    "cy:run:parallel:laptopmonitor": "concurrently \"npm run cy:run:laptop\" \"npm run cy:run:monitor\""
+    "cy:run:parallel:laptopmonitor:dashboard": "concurrently \"npm run cy:run:laptop -- --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4\" \"npm run cy:run:monitor -- --record --key 556b4c62-cc40-47e6-b947-1cb154ced6a4\""
   },
   "keywords": [],
   "author": "",
