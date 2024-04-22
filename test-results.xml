@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.690" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-04-22T10:37:24" tests="0" file="cypress\e2e\hw_9.2.1\test4\API-test-positive.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API Tests" timestamp="2024-04-22T10:37:24" tests="3" time="0.688" failures="0">
+    <testcase name="API Tests Should register a new user" time="0.224" classname="Should register a new user">
+    </testcase>
+    <testcase name="API Tests Should register a new user with empty name and last name" time="0.156" classname="Should register a new user with empty name and last name">
+    </testcase>
+    <testcase name="API Tests Should register a new user with existing email" time="0.154" classname="Should register a new user with existing email">
+    </testcase>
+  </testsuite>
+</testsuites>
