@@ -17,7 +17,10 @@
     "test:test1:chrome": "cypress run --config-file cypress/configs/test1_chrome.js --browser chrome",
     "test:test2:electron": "cypress run --config-file cypress/configs/test2_electron.js --browser electron",
     "cy:nokey:parallel": "npm run cy:run:chrome -- --browser chrome & npm run cy:run:electron -- --browser electron",
-    "cy:parallel": "concurrently \"npm run cy:run:main:chrome -- --browser chrome --group chrome --ci-build-id fs2ut8\" \"npm run cy:run:main:electron -- --browser electron --group electron --ci-build-id fs2ut8\""
+    "cy:parallel": "concurrently \"npm run cy:run:main:chrome -- --browser chrome --group chrome --ci-build-id fs2ut8\" \"npm run cy:run:main:electron -- --browser electron --group electron --ci-build-id fs2ut8\"",
+    "test:test3": "cypress run --spec 'path/to/test3.spec.js' --reporter mocha-junit-reporter",
+    "test:test4": "cypress run --spec 'path/to/test4.spec.js' --reporter mocha-junit-reporter",
+    "test:parallel": "concurrently \"npm run test:test3\" \"npm run test:test4\""
   },
   "keywords": [],
   "author": "",
@@ -25,8 +28,9 @@
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "concurrently": "^8.2.2",
-    "cypress": "^13.7.2",
-    "cypress-multi-reporters": "^1.6.4"
+    "cypress": "^13.8.0",
+    "cypress-multi-reporters": "^1.6.4",
+    "mocha-junit-reporter": "^2.2.1"
   },
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
@@ -34,5 +38,10 @@
     "junitReporter": {
       "outputPath": "results/junit.xml"
     }
+  },
+  "dependencies": {
+    "faker": "^6.6.6",
+    "jira-client": "^8.2.2",
+    "xml2js": "^0.6.2"
   }
 }
