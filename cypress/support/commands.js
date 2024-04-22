@@ -20,3 +20,54 @@
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 //const loginPage = require("../fixtures/pages/loginPage.json");
+Cypress.Commands.add('login', (username, password) => {
+    
+    cy.visit('/login'); // Предположим, что страница входа доступна по адресу /login
+    cy.get('#username').type(username);
+    cy.get('#password').type(password);
+    cy.get('#login-button').click();
+  });
+  const loginPage = require("../fixtures/pages/loginPage.json");
+const generalElements = require("../fixtures/pages/general.json");
+
+Cypress.Commands.add("addParticipant", (email) => {
+  cy.get('[data-cy="add-participant-input"]').type(email);
+  cy.get('[data-cy="add-participant-button"]').click();
+});
+
+Cypress.Commands.add("login", (email, password) => {
+  cy.visit("/login");
+  cy.get('[data-cy="loginField"]', { timeout: 10000 }).type(email); // Увеличиваем таймаут до 10 секунд
+  cy.get('[data-cy="passwordField"]').type(password);
+  cy.get('[data-cy="submitButton"]').click({ force: true });
+});
+
+
+Cypress.Commands.add("approveAsUser", (user, wishes) => {
+  cy.visit(inviteLink);
+  cy.get(generalElements.submitButton).click();
+  cy.contains("войдите").click();
+  cy.login(user.email, user.password);
+  cy.contains("Создать карточку участника").should("exist");
+  cy.get(generalElements.submitButton).click();
+  cy.get(generalElements.arrowRight).click();
+  cy.get(generalElements.arrowRight).click();
+  cy.get(inviteeBoxPage.wishesInput).type(wishes);
+  cy.get(generalElements.arrowRight).click();
+  cy.get(inviteeDashboardPage.noticeForInvitee)
+    .invoke("text")
+    .then((text) => {
+      expect(text).to.contain("Это — анонимный чат с вашим Тайным Сантой");
+    });
+  cy.clearCookies();
+});
+Cypress.Commands.add("deleteBox", (boxId) => {
+  cy.request({
+    method: "DELETE",
+    url: `/api/boxes/${boxId}`,
+    headers: {
+      Authorization: "your_auth_token",
+    },
+  });
+});
+
