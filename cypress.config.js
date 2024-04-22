@@ -4,7 +4,10 @@ module.exports = defineConfig({
   projectId: 'fs2ut8',
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // Используйте допустимое событие, например, after:run
+      on('after:run', (results) => {
+        // Ваша логика после завершения тестов
+      });
     },
   },
 });
